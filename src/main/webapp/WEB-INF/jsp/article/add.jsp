@@ -33,6 +33,24 @@
 <body>
 	<h1>게시물 작성</h1>
 
+	<script>
+		function submitAddForm(form) {
+			form.title.value = form.title.value.trim();
+			if (form.title.value.length == 0) {
+				alert('제목을 입력해주세요.');
+				form.title.focus();
+				return false;
+			}
+			form.body.value = form.body.value.trim();
+			if (form.body.value.length == 0) {
+				alert('내용을 입력해주세요.');
+				form.body.focus();
+				return false;
+			}
+			form.submit();
+		}
+	</script>
+
 	<form class="con common-form" action="./doAdd" method="POST"
 		onsubmit="submitAddForm(this); return false;">
 		<div>
