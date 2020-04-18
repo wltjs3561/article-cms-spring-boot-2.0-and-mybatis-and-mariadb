@@ -16,6 +16,8 @@ public class ArticleServiceImpl implements ArticleService{
 	ArticleDao articleDao;
 	
 	// 이제 ArticleService는 데이터 관련해서는 모두 Dao에게 위임
+	
+	@Override
 	public List<Article> getList(){
 		return articleDao.getList();
 	}
