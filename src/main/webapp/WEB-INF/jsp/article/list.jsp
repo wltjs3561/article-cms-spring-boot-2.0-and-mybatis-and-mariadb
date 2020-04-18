@@ -12,6 +12,8 @@
 <body>
 	<h1>게시물 리스트</h1>
 
+	<h2>전체 게시물 개수 : ${totalCount}</h2>
+	
 	<!-- el의 장점은 request.getAttrivut("article")할 필요가 없다 -->
 	<c:forEach items="${list}" var="article"> 
 		<section>
