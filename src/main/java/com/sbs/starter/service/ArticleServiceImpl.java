@@ -1,5 +1,6 @@
 package com.sbs.starter.service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.sbs.starter.dao.ArticleDao;
 import com.sbs.starter.dto.Article;
+
+import jline.internal.Log;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
@@ -23,8 +26,15 @@ public class ArticleServiceImpl implements ArticleService{
 	}
 	
 	@Override
-	public void add(Map<String, Object> param) {
+	public long add(Map<String, Object> param) {
 		articleDao.add(param);
+		
+		Log.info("newId : " + param.get("id"));
+		
+		BigInteger bigIntId = (BigInteger)param.get("id");
+		long newId = bigIntId.longValue();
+		
+		return newId;
 	}
 	
 }
